@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Detalle del estudiante</h2>
+
+  <div *ngIf="error" class="alert alert-info">
+    {{ error }}
+  </div>
+
+  <div *ngIf="estudiante as e" class="card shadow">
+    <div class="card-header bg-primary text-white">
+      Información académica
+    </div>
+
+    <div class="card-body">
+      <h4>{{ e.nombre }}</h4>
+
+      <p><strong>Nota 1:</strong> {{ e.nota1 }}</p>
+      <p><strong>Nota 2:</strong> {{ e.nota2 }}</p>
+      <p><strong>Nota 3:</strong> {{ e.nota3 }}</p>
+
+      <hr>
+
+      <p><strong>Suma:</strong> {{ suma }}</p>
+      <p><strong>Promedio:</strong> {{ promedio | number:'1.2-2' }}</p>
+
+      <p>
+        <strong>Estado:</strong>
+        <span
+          class="badge"
+          [ngClass]="estado === 'Aprobado' ? 'bg-success' : 'bg-danger'">
+          {{ estado }}
+        </span>
+      </p>
+
+      <p><strong>Observación:</strong> {{ observacion }}</p>
+
+      <a routerLink="/" class="btn btn-secondary">
+        Volver al reporte
+      </a>
+    </div>
+  </div>
+</div>
